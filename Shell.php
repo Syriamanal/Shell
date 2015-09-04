@@ -149,7 +149,7 @@ function wsoHeader() {
 <style>
 body{
 background-attachment: fixed;
-background-image: url(http://getwallpapers.net/wallpapers/m/63/abstract_minimalistic_digital_art_backgrounds_gradient_blurred_m62125.jpg);
+background-image: url(http://sameak.com/wp/Clean/images/gaussian-blur-fresh-hd-wallpaper.jpg);
 background-color:#0A0A0A;color:#fff;
  opacity: 0.7;
 }
