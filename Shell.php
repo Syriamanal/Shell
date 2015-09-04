@@ -143,7 +143,7 @@ function wsoHeader() {
 	if(empty($_POST['charset']))
 		$_POST['charset'] = $GLOBALS['default_charset'];
 	global $color;
-	echo "<html><head><meta http-equiv='Content-Type' content='text/html; charset=" . $_POST['charset'] . "'><title>" . $_SERVER['HTTP_HOST'] . " 
+	echo "<html><head><font color=#ecf0f1><meta http-equiv='Content-Type' content='text/html; charset=" . $_POST['charset'] . "'><title>" . $_SERVER['HTTP_HOST'] . " 
 
 - WSO " . WSO_VERSION ."</title>
 <style>
