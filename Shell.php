@@ -149,7 +149,7 @@ function wsoHeader() {
 <style>
 body{
 background-attachment: fixed;
-background-image: url(http://www.tapetus.pl/tapetus_pl.php?adres=86370,czaszka-kosci-opaska-pirat&rozdzielczosc=1400x1050);
+background-image: url(http://cdn1.bestpsdfreebies.com/wp-content/uploads/2014/05/Hexagon-2.jpg);
 background-color:#0A0A0A;color:#fff;
  opacity: 0.7;
 }
