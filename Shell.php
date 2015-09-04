@@ -286,7 +286,7 @@ mode'=>'SafeMode','String tools'=>'StringTools','Bruteforce'=>'Bruteforce','Netw
 ($GLOBALS['os'] == 'win'?'<br>Drives:':'') . '</span></td>'
        . '<td><nobr>' . substr(@php_uname(), 0, 120) . ' </nobr><br>' . $uid . ' ( ' . $user . ' ) <span>Group:</span> ' . $gid . ' ( ' . $group . ' )<br>' . @phpversion() . ' 
 
-<span>Safe mode:</span> ' . ($GLOBALS['safe_mode']?'<font color=red>ON</font>':'<font color=#00bb00><b>OFF</b></font>')
+<span>Safe mode:</span> ' . ($GLOBALS['safe_mode']?'<font color=red>ON</font>':'<font color=#2ecc71><b>OFF</b></font>')
        . ' <a href=# onclick="g(\'Php\',null,\'\',\'info\')">[ phpinfo ]</a> <span>Datetime:</span> ' . date('Y-m-d H:i:s') . '<br>' . wsoViewSize($totalSpace) . ' 
 
 <span>Free:</span> ' . wsoViewSize($freeSpace) . ' ('. (int) ($freeSpace/$totalSpace*100) . '%)<br>' . $cwd_links . ' '. wsoPermsColor($GLOBALS['cwd']) . ' <a 
