@@ -401,7 +401,7 @@ function wsoPermsColor($f) {
 	elseif (!@is_writable($f))
 		return '<font color=white>' . wsoPerms(@fileperms($f)) . '</font>';
 	else
-		return '<font color=#25ff00>' . wsoPerms(@fileperms($f)) . '</font>';
+		return '<font color=#2ecc710>' . wsoPerms(@fileperms($f)) . '</font>';
 }
 
 if(!function_exists("scandir")) {
