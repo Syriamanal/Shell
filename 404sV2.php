@@ -277,7 +277,7 @@ pre{font-family:Courier,Monospace;}
 }
  
 function wsoFooter() {
-    $is_writable = is_writable($GLOBALS['cwd'])?" <font color='green'>(Writeable)</font>":" <font color=#c0392b>(Not writable)</font>";
+    $is_writable = is_writable($GLOBALS['cwd'])?" <font color=#27ae60>(Writeable)</font>":" <font color=#c0392b>(Not writable)</font>";
     echo "
 </div>
 <table class=info id=toolsTbl cellpadding=3 cellspacing=0 width=100%  style='border-top:2px solid #333;border-bottom:2px solid #333;'>
